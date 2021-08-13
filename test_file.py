@@ -1,11 +1,11 @@
-from fpdf import FPDF
+import wikipedia, requests
 
-pdf = FPDF(orientation='P', unit='pt', format='A4')
-pdf.add_page()
+page = wikipedia.page("modern art")
 
-pdf.set_font(family='Times', size=24, style='B')
-pdf.cell(w=0, h=80, txt="Flatmates Bill", border=1, align='C', ln='1')
-pdf.cell(w=100, h=40, txt="Period", border=1)
-pdf.cell(w=100, h=40, txt="August, 2021", border=1)
+url = page.images[0]
 
-pdf.output("bill.pdf")
+req = requests.get(url)
+print(url)
+print(req.content)
+with open("image.jpg", 'wb') as file:
+    file.write(req.content)
