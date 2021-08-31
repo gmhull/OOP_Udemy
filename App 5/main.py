@@ -30,9 +30,6 @@ class BillFormPage(MethodView):
                                name2=flatmate2.name,
                                amount2="{:.2f}".format(flatmate2.pay(the_bill, flatmate1)))
 
-# class ResultsPage(MethodView):
-#     def post(self):
-
 
 class BillForm(Form):
     amount = StringField("Bill Amount: ", default="100")
@@ -48,6 +45,5 @@ class BillForm(Form):
 
 app.add_url_rule('/', view_func=HomePage.as_view('home_page'))
 app.add_url_rule('/bill', view_func=BillFormPage.as_view('bill_form_page'))
-# app.add_url_rule('/results', view_func=ResultsPage.as_view('results_page'))
 
 app.run(debug=True)

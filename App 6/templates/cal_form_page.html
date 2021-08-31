@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/static/main.css">
+  </head>
+  <body>
+    <h1>Calorie Form</h1>
+    <h3>Enter the data and click submit to get the results.</h3>
+    <form class="" action="/cals" method="post">
+      {{cal_form.metric.label}}{{cal_form.metric}}<br>
+      {{cal_form.age.label}}{{cal_form.age}}<br>
+      {{cal_form.weight.label}}{{cal_form.weight}}<br>
+      {{cal_form.height.label}}{{cal_form.height}}<br>
+      {{cal_form.city.label}}{{cal_form.city}}<br>
+      {{cal_form.country.label}}{{cal_form.country}}<br>
+      {{cal_form.button}}<br>
+      {% if result %}
+        <h2>You need {{calories}} calories per day!</h2>
+      {% endif %}
+    </form>
+  </body>
+</html>
